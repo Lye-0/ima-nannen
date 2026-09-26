@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f5ef">
+  <meta name="description" content="今は西暦何年、令和何年？ 今年の年をすぐ確認。昭和・平成・令和と西暦を、入力するだけで相互変換できます。">
+  <title>今って何年？ | 和暦・西暦 かんたん変換</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%2327473d'/%3E%3Ctext x='32' y='46' text-anchor='middle' font-size='42' fill='%23fff'%3E年%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+  <script src="calendar.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <main>
+    <header><span class="mark" aria-hidden="true">年</span><h1>今って何年？</h1><p>和暦と西暦、すぐわかる。</p></header>
+    <section class="today" aria-labelledby="today-heading">
+      <div class="today-top"><h2 id="today-heading">今年は</h2><time id="today-date"></time></div>
+      <div class="current-years"><p class="western"><span id="current-western">—</span><span class="unit">年</span></p><span class="equals" aria-hidden="true">＝</span><p class="japanese" id="current-japanese">—</p></div>
+      <p class="timezone">日本時間</p>
+    </section>
+    <section class="converter" aria-labelledby="convert-heading">
+      <div class="section-heading"><h2 id="convert-heading">年を変換する</h2><button id="reset" type="button">今年に戻す <span aria-hidden="true">↗</span></button></div>
+      <fieldset class="direction"><legend class="sr-only">変換する方向</legend>
+        <label><input type="radio" name="direction" value="western" checked><span>西暦 → 和暦</span></label>
+        <label><input type="radio" name="direction" value="japanese"><span>和暦 → 西暦</span></label>
+      </fieldset>
+      <fieldset id="era-field" class="eras" hidden><legend>元号</legend>
+        <label><input type="radio" name="era" value="showa"><span>昭和</span></label>
+        <label><input type="radio" name="era" value="heisei"><span>平成</span></label>
+        <label><input type="radio" name="era" value="reiwa" checked><span>令和</span></label>
+      </fieldset>
+      <label class="input-label" id="year-label" for="year">西暦</label>
+      <div class="year-input"><input id="year" type="text" inputmode="numeric" maxlength="8" autocomplete="off" spellcheck="false" aria-describedby="input-hint input-error"><span>年</span></div>
+      <p class="hint" id="input-hint">1926〜9999年を入力</p>
+      <p class="error" id="input-error" aria-live="polite"></p>
+      <div class="result" aria-live="polite" aria-atomic="true"><p class="result-label">変換結果</p><div id="result-value"></div><p id="result-note" class="result-note"></p></div>
+    </section>
+    <details><summary>元号の期間について</summary><dl><div><dt>昭和</dt><dd>1926年12月25日〜1989年1月7日</dd></div><div><dt>平成</dt><dd>1989年1月8日〜2019年4月30日</dd></div><div><dt>令和</dt><dd>2019年5月1日〜</dd></div></dl><p>年単位で変換します。改元のあった年は、日付によって元号が異なります。未来の令和年は、令和が続くと仮定した計算です。</p></details>
+    <noscript><p class="error">年の表示と変換には、ブラウザーのJavaScriptを有効にしてください。</p></noscript>
+    <footer>昭和・平成・令和に対応 <span aria-hidden="true">·</span> 入力内容は送信されません</footer>
+  </main>
+</body>
+</html>
